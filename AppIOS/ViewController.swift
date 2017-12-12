@@ -13,7 +13,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var fieldNum1: UITextField!
     @IBOutlet weak var fieldNum2: UITextField!
-    @IBOutlet weak var labelResult: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +28,5 @@ class ViewController: UIViewController {
     @IBAction func calculate(sender: UIButton) {
         let num1: Int! = Int(fieldNum1.text!)
         let num2: Int! = Int(fieldNum2.text!)
-        let result = num1 + num2
-
-        labelResult.text = "The Result is \(result)"
     }
 }
