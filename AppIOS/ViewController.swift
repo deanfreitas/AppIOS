@@ -26,7 +26,26 @@ class ViewController: UIViewController {
     }
 
     @IBAction func calculate(sender: UIButton) {
-        let num1: Int! = Int(fieldNum1.text!)
-        let num2: Int! = Int(fieldNum2.text!)
+        let login: String? = fieldNum1.text
+        let password: String? = fieldNum2.text
+
+        var message: String = "You need send your"
+        var isValidLogin: Bool = true
+
+        if login == "" {
+            message += "\n login"
+            isValidLogin = false
+        }
+
+        if password == "" {
+            message += "\n password"
+            isValidLogin = false
+        }
+
+        if !isValidLogin {
+            let alert = UIAlertController(title: "Title", message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }

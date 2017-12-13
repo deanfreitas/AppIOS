@@ -16,7 +16,7 @@ struct Login {
     }
 
     init(id: Int, user: String, password: String) {
-        self.id = id
         self.init(user: user, password: password)
+        self.id = id
     }
 }
