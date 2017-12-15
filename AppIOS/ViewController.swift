@@ -8,11 +8,12 @@
 
 import UIKit
 
-
 class ViewController: UIViewController {
 
     @IBOutlet weak var fieldNum1: UITextField!
     @IBOutlet weak var fieldNum2: UITextField!
+
+    private let valid = Valid()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,26 +27,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func calculate(sender: UIButton) {
-        let login: String? = fieldNum1.text
-        let password: String? = fieldNum2.text
+        let user: String! = fieldNum1.text
+        let password: String! = fieldNum2.text
+        let login = Login(user: user, password: password)
+        let message = valid.checkIsLogin(login: login)
 
-        var message: String = "You need send your"
-        var isValidLogin: Bool = true
-
-        if login == "" {
-            message += "\n login"
-            isValidLogin = false
+        if !message.isEmpty {
+            showAlertClick(message: message)
         }
+    }
 
-        if password == "" {
-            message += "\n password"
-            isValidLogin = false
-        }
-
-        if !isValidLogin {
-            let alert = UIAlertController(title: "Title", message: message, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+    func showAlertClick(message: String) {
+        let alert = UIAlertController(title: "Title", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
