@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         let message = valid.checkIsLogin(login: login)
 
         if !message.isEmpty {
-            showAlertClick(message: message)
+            return showAlertClick(message: message)
         }
     }
 

@@ -12,11 +12,12 @@
 		F91FF288F23A9989076742D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91FF9D50970D8DF81606481 /* LaunchScreen.storyboard */; };
 		F91FF316B224710548F5EC75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF89BE3C3C93A93A0D13B /* ViewController.swift */; };
 		F91FF41434570EDF2D72F61D /* Valid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF1EBCC5BC30F118DDCE8 /* Valid.swift */; };
+		F91FF4D4EC5EE7F553E16F6A /* SqliteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFC482E1AEF5240F1BBBA /* SqliteError.swift */; };
 		F91FF59ACCE1C742B982561D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF69ED5997782FEB28360 /* AppDelegate.swift */; };
 		F91FF89520BF2457DA9D2D32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91FF3C96F5CFBE0E493CD84 /* Main.storyboard */; };
 		F91FFE000E16A7797ECD486C /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFBB43662B9FF5CF622B5 /* Login.swift */; };
 		F91FFE625787DA703C0FB0C2 /* AppIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFB1429845313DE23C5B0 /* AppIOSUITests.swift */; };
-		F91FFEC6877E88B00F768EBC /* Sql.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFF8F45088F7050258CEC /* Sql.swift */; };
+		F91FFEC6877E88B00F768EBC /* SqliteWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFF8F45088F7050258CEC /* SqliteWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,11 +49,12 @@
 		F91FFADD4ABE3EC9A36AE26F /* AppIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91FFB1429845313DE23C5B0 /* AppIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIOSUITests.swift; sourceTree = "<group>"; };
 		F91FFBB43662B9FF5CF622B5 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		F91FFC482E1AEF5240F1BBBA /* SqliteError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteError.swift; sourceTree = "<group>"; };
 		F91FFC5DAB5495BCB543E983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		F91FFCAAFE2F76E14F57A57B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		F91FFD4F86421FDB5B0E9176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F91FFD505340CABA4A655DB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F91FFF8F45088F7050258CEC /* Sql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sql.swift; sourceTree = "<group>"; };
+		F91FFF8F45088F7050258CEC /* SqliteWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,14 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		F91FF1830BA85CC13E4E5620 /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				F91FFC482E1AEF5240F1BBBA /* SqliteError.swift */,
+			);
+			path = enum;
+			sourceTree = "<group>";
+		};
 		F91FF306B5435489FA8EFA9D /* AppIOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,8 +108,9 @@
 				F91FF3C96F5CFBE0E493CD84 /* Main.storyboard */,
 				F91FF89BE3C3C93A93A0D13B /* ViewController.swift */,
 				F91FF62B126393737309C976 /* models */,
-				F91FFB5512F5C601CACC4E87 /* db */,
+				F91FFB5512F5C601CACC4E87 /* sqlite */,
 				F91FF079C5D65D0E26BAB150 /* utils */,
+				F91FF1830BA85CC13E4E5620 /* enum */,
 			);
 			path = AppIOS;
 			sourceTree = "<group>";
@@ -122,12 +133,12 @@
 			);
 			sourceTree = "<group>";
 		};
-		F91FFB5512F5C601CACC4E87 /* db */ = {
+		F91FFB5512F5C601CACC4E87 /* sqlite */ = {
 			isa = PBXGroup;
 			children = (
-				F91FFF8F45088F7050258CEC /* Sql.swift */,
+				F91FFF8F45088F7050258CEC /* SqliteWrapper.swift */,
 			);
-			path = db;
+			path = sqlite;
 			sourceTree = "<group>";
 		};
 		F91FFC661B500968FD565FFD /* AppIOSTests */ = {
@@ -289,8 +300,9 @@
 				F91FF59ACCE1C742B982561D /* AppDelegate.swift in Sources */,
 				F91FF316B224710548F5EC75 /* ViewController.swift in Sources */,
 				F91FFE000E16A7797ECD486C /* Login.swift in Sources */,
-				F91FFEC6877E88B00F768EBC /* Sql.swift in Sources */,
+				F91FFEC6877E88B00F768EBC /* SqliteWrapper.swift in Sources */,
 				F91FF41434570EDF2D72F61D /* Valid.swift in Sources */,
+				F91FF4D4EC5EE7F553E16F6A /* SqliteError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
