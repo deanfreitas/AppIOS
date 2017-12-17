@@ -14,10 +14,12 @@ class SqliteWrapper {
 
     func openDatabase() throws -> OpaquePointer? {
         if db == nil {
-            if sqlite3_open(file, &db) == SQLITE_OK {
+            let result = sqlite3_open(file, &db)
+
+            if result == SQLITE_OK {
                 return db
             } else {
-                throw SqliteError.openDatabase("error opening database")
+                throw SqliteError.database("Error opening database")
             }
         }
         return db

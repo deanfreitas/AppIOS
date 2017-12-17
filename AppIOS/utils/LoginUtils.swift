@@ -5,21 +5,18 @@
 
 import Foundation
 
-class Valid {
-    private func checkIsEmpty(string: String!) -> Bool {
-        return string.isEmpty
-    }
+class LoginUtils {
 
-    func checkIsLogin(login: Login) -> String {
+    func checkLoginIsEmpty(login: Login) -> String {
         var message: String = "You need send your: "
         var isValidLogin: Bool = true
 
-        if checkIsEmpty(string: login.user) {
+        if Utils.checkIsEmpty(string: login.user) {
             message += "\n login"
             isValidLogin = false
         }
 
-        if checkIsEmpty(string: login.password) {
+        if Utils.checkIsEmpty(string: login.password) {
             message += "\n password"
             isValidLogin = false
         }

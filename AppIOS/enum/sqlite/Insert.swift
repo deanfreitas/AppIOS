@@ -5,6 +5,6 @@
 
 import Foundation
 
-enum SqliteError: Error {
-    case openDatabase(String)
+enum Insert: String {
+    case login = "insert into login(log_user, log_password) values (?, ?);"
 }
