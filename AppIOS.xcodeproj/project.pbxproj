@@ -10,11 +10,12 @@
 		F91FF004F42694C7075D0DB6 /* AppIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF58F8E2334D35524DC2C /* AppIOSTests.swift */; };
 		F91FF11F3E640BE9B2D22F5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91FF59ED558D60834017416 /* Assets.xcassets */; };
 		F91FF288F23A9989076742D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91FF9D50970D8DF81606481 /* LaunchScreen.storyboard */; };
-		F91FF316B224710548F5EC75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF89BE3C3C93A93A0D13B /* ViewController.swift */; };
+		F91FF2F4FE717BFBD7580766 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF67BC518FAAC32599C28 /* LoginController.swift */; };
 		F91FF41434570EDF2D72F61D /* LoginUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF1EBCC5BC30F118DDCE8 /* LoginUtils.swift */; };
 		F91FF59ACCE1C742B982561D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF69ED5997782FEB28360 /* AppDelegate.swift */; };
 		F91FF603B4D3B1CC166B4F07 /* LoginTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFFEF572621B4DA014EDA /* LoginTable.swift */; };
 		F91FF694D2EBC22A7B898740 /* SqliteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF77159045F01687993F3 /* SqliteService.swift */; };
+		F91FF6D13137A7393429BE41 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFD1DF24509408BCCEC04 /* RegisterController.swift */; };
 		F91FF71A73CF43A1BBA8326A /* Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF5F971FAE13A046A63D4 /* Insert.swift */; };
 		F91FF89520BF2457DA9D2D32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91FF3C96F5CFBE0E493CD84 /* Main.storyboard */; };
 		F91FFBEE85D268E4E1FE5FEF /* Select.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFC8C7B6BC0AD82B60647 /* Select.swift */; };
@@ -49,11 +50,11 @@
 		F91FF58F8E2334D35524DC2C /* AppIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIOSTests.swift; sourceTree = "<group>"; };
 		F91FF59ED558D60834017416 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F91FF5F971FAE13A046A63D4 /* Insert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insert.swift; sourceTree = "<group>"; };
+		F91FF67BC518FAAC32599C28 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F91FF69ED5997782FEB28360 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91FF77159045F01687993F3 /* SqliteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteService.swift; sourceTree = "<group>"; };
 		F91FF80F43224149948425BD /* SqliteTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteTable.swift; sourceTree = "<group>"; };
 		F91FF85E563F5AD4CEBB103C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		F91FF89BE3C3C93A93A0D13B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F91FFA0BEBBFFA280A83226C /* AppIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91FFA94E5927A00A025E605 /* AppIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91FFADD4ABE3EC9A36AE26F /* AppIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +64,7 @@
 		F91FFC5DAB5495BCB543E983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		F91FFC8C7B6BC0AD82B60647 /* Select.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Select.swift; sourceTree = "<group>"; };
 		F91FFCAAFE2F76E14F57A57B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		F91FFD1DF24509408BCCEC04 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		F91FFD4F86421FDB5B0E9176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F91FFD505340CABA4A655DB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F91FFF8F45088F7050258CEC /* SqliteWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteWrapper.swift; sourceTree = "<group>"; };
@@ -119,12 +121,12 @@
 				F91FF9D50970D8DF81606481 /* LaunchScreen.storyboard */,
 				F91FF69ED5997782FEB28360 /* AppDelegate.swift */,
 				F91FF3C96F5CFBE0E493CD84 /* Main.storyboard */,
-				F91FF89BE3C3C93A93A0D13B /* ViewController.swift */,
 				F91FF62B126393737309C976 /* models */,
 				F91FFB5512F5C601CACC4E87 /* sqlite */,
 				F91FF079C5D65D0E26BAB150 /* utils */,
 				F91FF1830BA85CC13E4E5620 /* enum */,
 				F91FF668B8A352A5F7A7EDD9 /* constants */,
+				F91FFDE841C640F4B67CB4A7 /* controller */,
 			);
 			path = AppIOS;
 			sourceTree = "<group>";
@@ -208,6 +210,15 @@
 				F91FF818195D0A9D9B9CBF36 /* error */,
 			);
 			path = sqlite;
+			sourceTree = "<group>";
+		};
+		F91FFDE841C640F4B67CB4A7 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				F91FF67BC518FAAC32599C28 /* LoginController.swift */,
+				F91FFD1DF24509408BCCEC04 /* RegisterController.swift */,
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 		F91FFF66ECC8D8FE160C3EFE /* AppIOSUITests */ = {
@@ -348,7 +359,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F91FF59ACCE1C742B982561D /* AppDelegate.swift in Sources */,
-				F91FF316B224710548F5EC75 /* ViewController.swift in Sources */,
 				F91FFE000E16A7797ECD486C /* Login.swift in Sources */,
 				F91FFEC6877E88B00F768EBC /* SqliteWrapper.swift in Sources */,
 				F91FF41434570EDF2D72F61D /* LoginUtils.swift in Sources */,
@@ -359,6 +369,8 @@
 				F91FF694D2EBC22A7B898740 /* SqliteService.swift in Sources */,
 				F91FF603B4D3B1CC166B4F07 /* LoginTable.swift in Sources */,
 				F91FFF84A9ABBE967819FA7E /* Utils.swift in Sources */,
+				F91FF2F4FE717BFBD7580766 /* LoginController.swift in Sources */,
+				F91FF6D13137A7393429BE41 /* RegisterController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
