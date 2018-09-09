@@ -7,29 +7,17 @@ import Foundation
 
 class SqliteTable {
 
-    func selectTable(object: Any, fields: String = "") throws -> [Any]! {
-        if object is Login {
-            let loginTable: LoginTable = LoginTable()
+    private let loginTable: LoginTable = LoginTable()
 
-            if Utils.checkIsEmpty(string: fields) {
-                return try loginTable.selectLogin(query: Select.login)
-            }
+    func selectTable(attributes: SqliteAttributes) throws -> Any! {
+        if !Utils.checkIsEmpty(string: attributes.field) && !Utils.checkIsEmpty(string: attributes.condition as! String) {
+            return try loginTable.selectLogin(attributes: attributes)
         }
 
         return nil
     }
 
-    func selectTable(object: Any, field: String, condition: String) throws -> Any! {
-        if object is Login {
-            let loginTable: LoginTable = LoginTable()
-
-            if !Utils.checkIsEmpty(string: field) {
-                if field == "user" {
-                    return try loginTable.selectLogin(query: Select.loginWithWhereUser, field: field, condition: condition)
-                }
-            }
-        }
-
-        return nil
+    func selectAllTableTable(attributes: SqliteAttributes) throws -> [Any]! {
+        return try loginTable.selectAllTableLogin(attributes: attributes)
     }
 }

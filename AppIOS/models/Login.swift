@@ -5,17 +5,17 @@
 
 import Foundation
 
-struct Login {
-    var id: Int?;
-    var user: String;
-    var password: String;
+class Login: User {
+    var id: Int?
+    var user: String
+    var password: String
 
     init(user: String, password: String) {
         self.user = user
         self.password = password
     }
 
-    init(id: Int, user: String, password: String) {
+    convenience init(id: Int, user: String, password: String) {
         self.init(user: user, password: password)
         self.id = id
     }

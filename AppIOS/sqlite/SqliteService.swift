@@ -10,19 +10,19 @@ class SqliteService {
 
     private let sqliteWrapper: SqliteWrapper = SqliteWrapper()
 
-    func select(query: Select!, field: String!, condition: Any!) throws -> OpaquePointer! {
+    func select(query: String, attributes: SqliteAttributes) throws -> OpaquePointer! {
         let connect = try self.sqliteWrapper.openDatabase()
         var queryStatement: OpaquePointer?
-        var result = sqlite3_prepare_v2(connect, query.rawValue, -1, &queryStatement, nil)
+        var result: Int32 = sqlite3_prepare_v2(connect, query, -1, &queryStatement, nil)
 
         if result != SQLITE_OK {
             throw SqliteError.select("Select statement could not be prepared")
         }
 
-        if field == "id" {
-            sqlite3_bind_int(queryStatement, 1, condition as! Int32)
+        if attributes.field == "id" {
+            sqlite3_bind_int(queryStatement, 1, attributes.condition as! Int32)
         } else {
-            let value = condition as! NSString
+            let value = attributes.condition as! NSString
             sqlite3_bind_text(queryStatement, 1, value.utf8String, -1, nil)
         }
 
@@ -39,11 +39,11 @@ class SqliteService {
         return queryStatement
     }
 
-    func select(query: Select!) throws -> [OpaquePointer]! {
+    func select(query: String) throws -> [OpaquePointer]! {
         let connect = try self.sqliteWrapper.openDatabase()
         var listResult = [OpaquePointer]()
         var queryStatement: OpaquePointer?
-        var result = sqlite3_prepare_v2(connect, query.rawValue, -1, &queryStatement, nil)
+        var result = sqlite3_prepare_v2(connect, query, -1, &queryStatement, nil)
 
         if result != SQLITE_OK {
             throw SqliteError.select("Select statement could not be prepared")

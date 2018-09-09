@@ -16,8 +16,6 @@ class LoginController: UIViewController {
     private let loginUtils: LoginUtils = LoginUtils()
     private let sqliteTable: SqliteTable = SqliteTable()
 
-    private var login: Login!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -40,8 +38,9 @@ class LoginController: UIViewController {
         }
 
         do {
-            self.login = try self.sqliteTable.selectTable(object: login, field: "user", condition: login.user) as! Login
-            if self.login.password != login.password {
+            let attributes: SqliteAttributes = SqliteAttributes(table: "login", field: "log_user", condition: login.user)
+            let registeredLogin: Login = try self.sqliteTable.selectTable(attributes: attributes) as! Login
+            if registeredLogin.password != login.password {
                 showAlertClick(message: "Your user or password is wrong")
             }
         } catch SqliteError.database(let error) {
