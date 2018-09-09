@@ -29,7 +29,7 @@ class LoginController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func calculate(sender: UIButton) {
+    @IBAction func login(sender: UIButton) {
         let user: String! = self.fieldNum1.text
         let password: String! = self.fieldNum2.text
         let login: Login = Login(user: user, password: password)

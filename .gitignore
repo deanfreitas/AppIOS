@@ -25,7 +25,6 @@ xcuserdata/
 *.xcscmblueprint
 
 ## Obj-C/Swift specific
-*.hmap
 *.ipa
 *.dSYM.zip
 *.dSYM
@@ -49,6 +48,9 @@ playground.xcworkspace
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 # Pods/
+
+Pods/
+Podfile.lock
 
 # Carthage
 #
