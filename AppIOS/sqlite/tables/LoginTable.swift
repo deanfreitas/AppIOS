@@ -12,21 +12,21 @@ class LoginTable {
     private let sqliteColumn: SqliteColumn = SqliteColumn()
 
     func selectLogin(attributes: SqliteAttributes) throws -> Any {
-        let result: OpaquePointer! = try sqliteService.select(query: Select.selectWithCondition(attributes).query, attributes: attributes)
+        let queryStatement: OpaquePointer! = try sqliteService.select(query: Select.selectWithCondition(attributes).query, attributes: attributes)
 
         var id: Int?
         var user: String?
         var password: String?
 
-        for number in 0..<sqliteColumn.getNumberColumn(result: result) {
-            let nameColumn = sqliteColumn.getNameColumn(result: result, number: number)
+        for number in 0..<sqliteColumn.getNumberColumn(queryStatement: queryStatement) {
+            let nameColumn = sqliteColumn.getNameColumn(queryStatement: queryStatement, number: number)
 
             if nameColumn.contains("id") {
-                id = (sqliteColumn.getValue(result: result, number: number) as! Int)
+                id = (sqliteColumn.getValue(queryStatement: queryStatement, number: number) as! Int)
             } else if nameColumn.contains("user") {
-                user = (sqliteColumn.getValue(result: result, number: number) as! String)
+                user = (sqliteColumn.getValue(queryStatement: queryStatement, number: number) as! String)
             } else if nameColumn.contains("password") {
-                password = (sqliteColumn.getValue(result: result, number: number) as! String)
+                password = (sqliteColumn.getValue(queryStatement: queryStatement, number: number) as! String)
             }
         }
         sqliteService.finalize()

@@ -38,7 +38,7 @@ class LoginController: UIViewController {
         }
 
         do {
-            let attributes: SqliteAttributes = SqliteAttributes(table: "login", conditionField: "log_user", listGetField: ["log_user"], condition: login.user)
+            let attributes: SqliteAttributes = SqliteAttributes(table: "login", conditionField: "log_user", condition: login.user)
             let result: Any = try self.sqliteTable.selectTable(attributes: attributes)
 
             if !Utils.checkTypeObject(object: result, typeObject: Login.self) {

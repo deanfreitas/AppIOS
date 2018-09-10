@@ -39,6 +39,10 @@ class SqliteService {
         return queryStatement
     }
 
+    func checkResult(result: OpaquePointer, number: Int) {
+
+    }
+
     func finalize() {
         if queryStatement != nil {
             sqlite3_finalize(queryStatement)
