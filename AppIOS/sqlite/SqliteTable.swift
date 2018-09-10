@@ -14,10 +14,6 @@ class SqliteTable {
             return try loginTable.selectLogin(attributes: attributes)
         }
 
-        return nil
-    }
-
-    func selectAllTableTable(attributes: SqliteAttributes) throws -> [Any]! {
-        return try loginTable.selectAllTableLogin(attributes: attributes)
+        throw GenericError.system
     }
 }

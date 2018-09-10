@@ -5,8 +5,17 @@
 
 import Foundation
 
+
 class Utils {
     static func checkIsEmpty(string: String!) -> Bool {
-        return string.isEmpty
+        return string == nil || string.isEmpty
+    }
+
+    static func checkIsEmpty(listString: [String]!) -> Bool {
+        return listString == nil || listString.isEmpty
+    }
+
+    static func checkTypeObject<T>(object: Any, typeObject: T.Type) -> Bool {
+        return type(of: object) == typeObject
     }
 }

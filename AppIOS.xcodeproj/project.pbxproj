@@ -20,11 +20,13 @@
 		F91FF603B4D3B1CC166B4F07 /* LoginTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFFEF572621B4DA014EDA /* LoginTable.swift */; };
 		F91FF694D2EBC22A7B898740 /* SqliteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF77159045F01687993F3 /* SqliteService.swift */; };
 		F91FF6D13137A7393429BE41 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFD1DF24509408BCCEC04 /* RegisterController.swift */; };
+		F91FF6E3A7B5584168BE8CB8 /* SqliteColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF766A57CC171536FC831 /* SqliteColumn.swift */; };
 		F91FF71A73CF43A1BBA8326A /* Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF5F971FAE13A046A63D4 /* Insert.swift */; };
 		F91FF75D3639B59B3F60BE75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91FF21E887CBCBDBF715118 /* Main.storyboard */; };
 		F91FF907814CCE4DF9D055F4 /* SqliteAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF63CA7941AED18E41501 /* SqliteAttributes.swift */; };
+		F91FF959AC56348B5924F6F7 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF6F6E5C93FAE7D867A4F /* GenericError.swift */; };
+		F91FFB6D07CCA3636065CD11 /* SqliteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF208E65D952B1605AA6B /* SqliteError.swift */; };
 		F91FFBEE85D268E4E1FE5FEF /* Select.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFC8C7B6BC0AD82B60647 /* Select.swift */; };
-		F91FFCB69BEC3A607E12B9A4 /* SqliteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFB8F8E162A27C5BFB916 /* SqliteError.swift */; };
 		F91FFE000E16A7797ECD486C /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFBB43662B9FF5CF622B5 /* Login.swift */; };
 		F91FFE3B2BD0760775554D35 /* SqliteTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FF80F43224149948425BD /* SqliteTable.swift */; };
 		F91FFE625787DA703C0FB0C2 /* AppIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FFB1429845313DE23C5B0 /* AppIOSUITests.swift */; };
@@ -60,6 +62,7 @@
 		D9FA45B53CD304697ED14696 /* Pods-AppIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppIOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppIOSUITests/Pods-AppIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E50F0DA6EF67A3EEECEEEDCE /* Pods_AppIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91FF1EBCC5BC30F118DDCE8 /* LoginUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUtils.swift; sourceTree = "<group>"; };
+		F91FF208E65D952B1605AA6B /* SqliteError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteError.swift; sourceTree = "<group>"; };
 		F91FF2121E23F9022CD2A529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		F91FF49D56110A23664E82D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F91FF58F8E2334D35524DC2C /* AppIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIOSTests.swift; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 		F91FF63CA7941AED18E41501 /* SqliteAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteAttributes.swift; sourceTree = "<group>"; };
 		F91FF67BC518FAAC32599C28 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F91FF69ED5997782FEB28360 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F91FF6F6E5C93FAE7D867A4F /* GenericError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
+		F91FF766A57CC171536FC831 /* SqliteColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteColumn.swift; sourceTree = "<group>"; };
 		F91FF77159045F01687993F3 /* SqliteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteService.swift; sourceTree = "<group>"; };
 		F91FF80F43224149948425BD /* SqliteTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteTable.swift; sourceTree = "<group>"; };
 		F91FF85E563F5AD4CEBB103C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		F91FFA94E5927A00A025E605 /* AppIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91FFADD4ABE3EC9A36AE26F /* AppIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91FFB1429845313DE23C5B0 /* AppIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIOSUITests.swift; sourceTree = "<group>"; };
-		F91FFB8F8E162A27C5BFB916 /* SqliteError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteError.swift; sourceTree = "<group>"; };
 		F91FFBB43662B9FF5CF622B5 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F91FFC5DAB5495BCB543E983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		F91FFC8C7B6BC0AD82B60647 /* Select.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Select.swift; sourceTree = "<group>"; };
@@ -137,6 +141,15 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		F91FF181448ED5B96E646C30 /* error */ = {
+			isa = PBXGroup;
+			children = (
+				F91FF208E65D952B1605AA6B /* SqliteError.swift */,
+				F91FF6F6E5C93FAE7D867A4F /* GenericError.swift */,
+			);
+			path = error;
+			sourceTree = "<group>";
+		};
 		F91FF1830BA85CC13E4E5620 /* enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +171,7 @@
 				F91FF668B8A352A5F7A7EDD9 /* constants */,
 				F91FFDE841C640F4B67CB4A7 /* controller */,
 				F91FF79C929719B21BBB616C /* Base.lproj */,
+				F91FF181448ED5B96E646C30 /* error */,
 			);
 			path = AppIOS;
 			sourceTree = "<group>";
@@ -188,14 +202,6 @@
 			path = Base.lproj;
 			sourceTree = "<group>";
 		};
-		F91FF818195D0A9D9B9CBF36 /* error */ = {
-			isa = PBXGroup;
-			children = (
-				F91FFB8F8E162A27C5BFB916 /* SqliteError.swift */,
-			);
-			path = error;
-			sourceTree = "<group>";
-		};
 		F91FF869A81986A54CF67D12 /* tables */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +229,7 @@
 				F91FF80F43224149948425BD /* SqliteTable.swift */,
 				F91FF77159045F01687993F3 /* SqliteService.swift */,
 				F91FF869A81986A54CF67D12 /* tables */,
+				F91FF766A57CC171536FC831 /* SqliteColumn.swift */,
 			);
 			path = sqlite;
 			sourceTree = "<group>";
@@ -251,7 +258,6 @@
 			children = (
 				F91FF5F971FAE13A046A63D4 /* Insert.swift */,
 				F91FFC8C7B6BC0AD82B60647 /* Select.swift */,
-				F91FF818195D0A9D9B9CBF36 /* error */,
 			);
 			path = sqlite;
 			sourceTree = "<group>";
@@ -501,7 +507,6 @@
 				F91FFE3B2BD0760775554D35 /* SqliteTable.swift in Sources */,
 				F91FF71A73CF43A1BBA8326A /* Insert.swift in Sources */,
 				F91FFBEE85D268E4E1FE5FEF /* Select.swift in Sources */,
-				F91FFCB69BEC3A607E12B9A4 /* SqliteError.swift in Sources */,
 				F91FF694D2EBC22A7B898740 /* SqliteService.swift in Sources */,
 				F91FF603B4D3B1CC166B4F07 /* LoginTable.swift in Sources */,
 				F91FFF84A9ABBE967819FA7E /* Utils.swift in Sources */,
@@ -509,6 +514,9 @@
 				F91FF6D13137A7393429BE41 /* RegisterController.swift in Sources */,
 				F91FF907814CCE4DF9D055F4 /* SqliteAttributes.swift in Sources */,
 				F91FF0979B10EEA6F0BCCB4B /* User.swift in Sources */,
+				F91FFB6D07CCA3636065CD11 /* SqliteError.swift in Sources */,
+				F91FF959AC56348B5924F6F7 /* GenericError.swift in Sources */,
+				F91FF6E3A7B5584168BE8CB8 /* SqliteColumn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

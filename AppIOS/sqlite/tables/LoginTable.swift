@@ -9,32 +9,30 @@ import SQLite3
 class LoginTable {
 
     private let sqliteService: SqliteService = SqliteService()
+    private let sqliteColumn: SqliteColumn = SqliteColumn()
 
-    func selectLogin(attributes: SqliteAttributes) throws -> Login! {
+    func selectLogin(attributes: SqliteAttributes) throws -> Any {
         let result: OpaquePointer! = try sqliteService.select(query: Select.selectWithCondition(attributes).query, attributes: attributes)
 
-        let id: Int = Int(sqlite3_column_int(result, 0))
-        let user: String = String(cString: sqlite3_column_text(result, 1))
-        let password: String = String(cString: sqlite3_column_text(result, 2))
+        var id: Int?
+        var user: String?
+        var password: String?
 
-        let login: Login = Login(id: id, user: user, password: password)
+        for number in 0..<sqliteColumn.getNumberColumn(result: result) {
+            let nameColumn = sqliteColumn.getNameColumn(result: result, number: number)
+
+            if nameColumn.contains("id") {
+                id = (sqliteColumn.getValue(result: result, number: number) as! Int)
+            } else if nameColumn.contains("user") {
+                user = (sqliteColumn.getValue(result: result, number: number) as! String)
+            } else if nameColumn.contains("password") {
+                password = (sqliteColumn.getValue(result: result, number: number) as! String)
+            }
+        }
+        sqliteService.finalize()
+
+        let login: Login = Login(id: id!, user: user!, password: password!)
 
         return login
-    }
-
-    func selectAllTableLogin(attributes: SqliteAttributes) throws -> [Login]! {
-        let listResult: [OpaquePointer]! = try self.sqliteService.select(query: Select.select(attributes).query)
-        var listLogin: [Login] = [Login]()
-
-        for result in listResult {
-            let id: Int = Int(sqlite3_column_int(result, 0))
-            let user: String = String(cString: sqlite3_column_text(result, 1))
-            let password: String = String(cString: sqlite3_column_text(result, 2))
-
-            let login: Login = Login(id: id, user: user, password: password)
-            listLogin.append(login)
-        }
-
-        return listLogin
     }
 }

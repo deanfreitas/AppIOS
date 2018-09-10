@@ -19,9 +19,16 @@ class SqliteWrapper {
             if result == SQLITE_OK {
                 return db
             } else {
-                throw SqliteError.database("Error opening database")
+                throw SqliteError.database
             }
         }
         return db
+    }
+
+    func closeDatabase() {
+        if db != nil {
+            sqlite3_close(db)
+            db = nil
+        }
     }
 }

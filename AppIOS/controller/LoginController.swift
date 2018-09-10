@@ -38,20 +38,26 @@ class LoginController: UIViewController {
         }
 
         do {
-            let attributes: SqliteAttributes = SqliteAttributes(table: "login", field: "log_user", condition: login.user)
-            let registeredLogin: Login = try self.sqliteTable.selectTable(attributes: attributes) as! Login
+            let attributes: SqliteAttributes = SqliteAttributes(table: "login", conditionField: "log_user", listGetField: ["log_user"], condition: login.user)
+            let result: Any = try self.sqliteTable.selectTable(attributes: attributes)
+
+            if !Utils.checkTypeObject(object: result, typeObject: Login.self) {
+                print(GenericError.system.rawValue)
+                showAlertClick(message: GenericError.system.rawValue)
+            }
+
+            let registeredLogin: Login = result as! Login
+
             if registeredLogin.password != login.password {
                 showAlertClick(message: "Your user or password is wrong")
             }
-        } catch SqliteError.database(let error) {
-            print(error)
-            showAlertClick(message: error)
-        } catch SqliteError.select(let error) {
-            print(error)
-            showAlertClick(message: error)
-        } catch SqliteError.selectNotFound(let error) {
-            print(error)
-            showAlertClick(message: "Your user or password is wrong")
+
+        } catch let error as SqliteError {
+            print(error.getError)
+            showAlertClick(message: error.getError)
+        } catch let error as GenericError {
+            print(error.getError)
+            showAlertClick(message: error.getError)
         } catch {
             print(error)
             showAlertClick(message: error.localizedDescription)

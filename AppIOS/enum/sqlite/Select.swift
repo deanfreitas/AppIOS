@@ -9,12 +9,14 @@ enum Select {
     case select(SqliteAttributes)
     case selectColumn(SqliteAttributes)
     case selectWithCondition(SqliteAttributes)
+    case selectColumnWithCondition(SqliteAttributes)
 
     var query: String {
         switch self {
         case .select(let attributes): return "select * from \(attributes.table);"
         case .selectColumn(let attributes): return "select \(attributes.field) from \(attributes.table);"
-        case .selectWithCondition(let attributes): return "select * from \(attributes.table) where \(attributes.field) = ?;"
+        case .selectWithCondition(let attributes): return "select * from \(attributes.table) where \(attributes.conditionField) = ?;"
+        case .selectColumnWithCondition(let attributes): return "select \(attributes.field) from \(attributes.table) where \(attributes.conditionField) = ?;"
         }
     }
 }

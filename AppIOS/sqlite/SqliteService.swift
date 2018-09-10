@@ -9,14 +9,14 @@ import SQLite3
 class SqliteService {
 
     private let sqliteWrapper: SqliteWrapper = SqliteWrapper()
+    private var queryStatement: OpaquePointer?
 
     func select(query: String, attributes: SqliteAttributes) throws -> OpaquePointer! {
         let connect = try self.sqliteWrapper.openDatabase()
-        var queryStatement: OpaquePointer?
         var result: Int32 = sqlite3_prepare_v2(connect, query, -1, &queryStatement, nil)
 
         if result != SQLITE_OK {
-            throw SqliteError.select("Select statement could not be prepared")
+            throw SqliteError.select
         }
 
         if attributes.field == "id" {
@@ -29,41 +29,21 @@ class SqliteService {
         result = sqlite3_step(queryStatement)
 
         if result != SQLITE_ROW {
-            throw SqliteError.selectNotFound("Query returned no results")
+            throw SqliteError.selectNotFound
         }
 
         if queryStatement == nil {
-            throw SqliteError.selectNotFound("Not found results")
+            throw SqliteError.selectNotFoundValues
         }
 
         return queryStatement
     }
 
-    func select(query: String) throws -> [OpaquePointer]! {
-        let connect = try self.sqliteWrapper.openDatabase()
-        var listResult = [OpaquePointer]()
-        var queryStatement: OpaquePointer?
-        var result = sqlite3_prepare_v2(connect, query, -1, &queryStatement, nil)
-
-        if result != SQLITE_OK {
-            throw SqliteError.select("Select statement could not be prepared")
+    func finalize() {
+        if queryStatement != nil {
+            sqlite3_finalize(queryStatement)
         }
 
-        result = sqlite3_step(queryStatement)
-
-        if result != SQLITE_ROW {
-            throw SqliteError.select("Query returned no results")
-        }
-
-        while result == SQLITE_ROW {
-            listResult.append(queryStatement!)
-            result = sqlite3_step(queryStatement)
-        }
-
-        if listResult.isEmpty {
-            throw SqliteError.select("Not found results")
-        }
-
-        return listResult
+        self.sqliteWrapper.closeDatabase()
     }
 }
