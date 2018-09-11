@@ -9,6 +9,7 @@ import SQLite3
 class SqliteService {
 
     private let sqliteWrapper: SqliteWrapper = SqliteWrapper()
+    private let sqliteBind: SqliteBind = SqliteBind()
     private var queryStatement: OpaquePointer?
 
     func select(query: String, attributes: SqliteAttributes) throws -> OpaquePointer! {
@@ -19,12 +20,7 @@ class SqliteService {
             throw SqliteError.select
         }
 
-        if attributes.field == "id" {
-            sqlite3_bind_int(queryStatement, 1, attributes.condition as! Int32)
-        } else {
-            let value = attributes.condition as! NSString
-            sqlite3_bind_text(queryStatement, 1, value.utf8String, -1, nil)
-        }
+        sqliteBind.addBindInQuery(query: query, queryStatement: queryStatement!, valuesBind: attributes.condition)
 
         result = sqlite3_step(queryStatement)
 
@@ -32,15 +28,16 @@ class SqliteService {
             throw SqliteError.selectNotFound
         }
 
+        // TODO --> colocar para retornar uma lista de resultados select
+        //while result == SQLITE_ROW {
+        //    result = sqlite3_step(queryStatement)
+        //}
+
         if queryStatement == nil {
             throw SqliteError.selectNotFoundValues
         }
 
         return queryStatement
-    }
-
-    func checkResult(result: OpaquePointer, number: Int) {
-
     }
 
     func finalize() {

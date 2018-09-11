@@ -29,6 +29,7 @@ class LoginTable {
                 password = (sqliteColumn.getValue(queryStatement: queryStatement, number: number) as! String)
             }
         }
+
         sqliteService.finalize()
 
         let login: Login = Login(id: id!, user: user!, password: password!)

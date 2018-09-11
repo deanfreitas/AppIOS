@@ -7,7 +7,7 @@ import Foundation
 
 class LoginUtils {
 
-    func checkLoginIsEmpty(login: Login) -> String {
+    func checkLoginIsEmpty(login: Login) -> String? {
         var message: String = "You need send your: "
         var isValidLogin: Bool = true
 
@@ -21,6 +21,6 @@ class LoginUtils {
             isValidLogin = false
         }
 
-        return !isValidLogin ? message : ""
+        return !isValidLogin ? message : nil
     }
 }

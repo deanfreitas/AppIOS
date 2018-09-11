@@ -6,13 +6,13 @@
 import Foundation
 
 enum GenericError: String, Error {
-    case accessVariable
     case system
+    case wrongUser
 
     var getError: String {
         switch self {
         case .system: return "System error"
-        case .accessVariable: return ""
+        case .wrongUser: return "Your user or password is wrong"
         }
     }
 }

@@ -31,10 +31,11 @@ class LoginController: UIViewController {
         let user: String! = self.fieldNum1.text
         let password: String! = self.fieldNum2.text
         let login: Login = Login(user: user, password: password)
-        let message: String = self.loginUtils.checkLoginIsEmpty(login: login)
+        let message: String? = self.loginUtils.checkLoginIsEmpty(login: login)
 
-        if !message.isEmpty {
-            return showAlertClick(message: message)
+        if !Utils.checkIsEmpty(string: message) {
+            print(message ?? GenericError.system.getError)
+            return showAlertClick(message: message ?? GenericError.system.getError)
         }
 
         do {
@@ -42,25 +43,25 @@ class LoginController: UIViewController {
             let result: Any = try self.sqliteTable.selectTable(attributes: attributes)
 
             if !Utils.checkTypeObject(object: result, typeObject: Login.self) {
-                print(GenericError.system.rawValue)
-                showAlertClick(message: GenericError.system.rawValue)
+                print(GenericError.system.getError)
+                showAlertClick(message: GenericError.system.getError)
             }
 
             let registeredLogin: Login = result as! Login
 
             if registeredLogin.password != login.password {
-                showAlertClick(message: "Your user or password is wrong")
+                showAlertClick(message: GenericError.wrongUser.getError)
             }
 
         } catch let error as SqliteError {
             print(error.getError)
-            showAlertClick(message: error.getError)
+            showAlertClick(message: error.getErrorUser)
         } catch let error as GenericError {
             print(error.getError)
             showAlertClick(message: error.getError)
         } catch {
             print(error)
-            showAlertClick(message: error.localizedDescription)
+            showAlertClick(message: GenericError.system.getError)
         }
     }
 

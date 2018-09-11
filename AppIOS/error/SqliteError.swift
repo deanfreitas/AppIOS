@@ -25,4 +25,12 @@ enum SqliteError: String, Error {
         case .delete: return ""
         }
     }
+
+    var getErrorUser: String {
+        switch self {
+        case .database, .select: return "Error System"
+        case .selectNotFound, .selectNotFoundValues: return "Your user or password is wrong"
+        default: return ""
+        }
+    }
 }

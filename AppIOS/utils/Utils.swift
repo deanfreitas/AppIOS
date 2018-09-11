@@ -18,4 +18,20 @@ class Utils {
     static func checkTypeObject<T>(object: Any, typeObject: T.Type) -> Bool {
         return type(of: object) == typeObject
     }
+
+    static func convertStringToArrayCharacters(string: String) -> [Character] {
+        return Array(string)
+    }
+
+    static func getNumberBind(listCharacter: [Character], character: Character) -> Int {
+        var counts: Int = 0
+
+        listCharacter.forEach {
+            if $0 == character {
+                counts += 1
+            }
+        }
+
+        return counts
+    }
 }
