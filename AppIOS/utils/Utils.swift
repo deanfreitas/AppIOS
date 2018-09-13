@@ -7,12 +7,18 @@ import Foundation
 
 
 class Utils {
-    static func checkIsEmpty(string: String!) -> Bool {
-        return string == nil || string.isEmpty
-    }
+    static func checkIsEmpty(value: Any!) -> Bool {
+        if value != nil {
+            if checkTypeObject(object: value, typeObject: String.self) {
+                return (value as! String).isEmpty
+            } else if checkTypeObject(object: value, typeObject: Array<String>.self) {
+                return (value as! Array<String>).isEmpty
+            } else if checkTypeObject(object: value, typeObject: Dictionary<String, Any>.self) {
+                return (value as! Dictionary<String, Any>).isEmpty
+            }
+        }
 
-    static func checkIsEmpty(listString: [String]!) -> Bool {
-        return listString == nil || listString.isEmpty
+        return true
     }
 
     static func checkTypeObject<T>(object: Any, typeObject: T.Type) -> Bool {
@@ -33,5 +39,17 @@ class Utils {
         }
 
         return counts
+    }
+
+    static func createQuery(operatorEqual: String, listKeys: [String]) -> String {
+        var query: String = ""
+
+        for keys in listKeys {
+            query.append(contentsOf: "where ")
+            query.append(contentsOf: keys)
+            query.append(contentsOf: operatorEqual)
+        }
+
+        return query
     }
 }

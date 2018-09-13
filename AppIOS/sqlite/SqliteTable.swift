@@ -10,7 +10,7 @@ class SqliteTable {
     private let loginTable: LoginTable = LoginTable()
 
     func selectTable(attributes: SqliteAttributes) throws -> Any! {
-        if !Utils.checkIsEmpty(string: attributes.conditionField) && !Utils.checkIsEmpty(string: attributes.condition as! String) {
+        if !Utils.checkIsEmpty(value: attributes.listBind) {
             return try loginTable.selectLogin(attributes: attributes)
         }
 

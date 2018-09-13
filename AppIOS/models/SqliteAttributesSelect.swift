@@ -1,5 +1,5 @@
 //
-// Created by Gilberto Freitas on 08/09/2018.
+// Created by Gilberto Freitas on 13/09/2018.
 // Copyright (c) 2018 Gilberto Freitas. All rights reserved.
 //
 
@@ -7,40 +7,34 @@ import Foundation
 
 extension SqliteAttributes {
 
-    struct Select {
-        static var conditionField: String = ""
-        static var condition: Any = ""
+    private struct Select {
+        static var query: String = ""
     }
 
-    var conditionField: String {
-        set {
-            Select.conditionField = newValue
-        }
-
+    var getEqualConditions: String {
         get {
-            return Select.conditionField
+
+            if Utils.checkIsEmpty(value: listBind.keys) {
+                return Select.query
+            }
+
+            return Utils.createQuery(operatorEqual: " = ?", listKeys: [String](listBind.keys))
         }
     }
 
-    var condition: Any {
-        set {
-            Select.condition = newValue
-        }
-
+    var getNotEqualConditions: String {
         get {
-            return Select.condition
+
+            if Utils.checkIsEmpty(value: listBind.keys) {
+                return Select.query
+            }
+
+            return Utils.createQuery(operatorEqual: " != ?", listKeys: [String](listBind.keys))
         }
     }
 
-    convenience init(table: String, conditionField: String, condition: Any) {
-        self.init(table: table)
-        self.conditionField = conditionField
-        self.condition = condition
-    }
-
-
-    convenience init(table: String, conditionField: String, listGetField: [String], condition: Any) {
-        self.init(table: table, conditionField: conditionField, condition: condition)
-        self.listGetField = listGetField
+    convenience init(query: String) {
+        self.init(table: "")
+        Select.query = query
     }
 }

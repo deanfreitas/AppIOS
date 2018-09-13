@@ -11,12 +11,12 @@ class LoginUtils {
         var message: String = "You need send your: "
         var isValidLogin: Bool = true
 
-        if Utils.checkIsEmpty(string: login.user) {
+        if Utils.checkIsEmpty(value: login.user) {
             message += "\n login"
             isValidLogin = false
         }
 
-        if Utils.checkIsEmpty(string: login.password) {
+        if Utils.checkIsEmpty(value: login.password) {
             message += "\n password"
             isValidLogin = false
         }

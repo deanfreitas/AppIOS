@@ -20,7 +20,7 @@ class SqliteService {
             throw SqliteError.select
         }
 
-        sqliteBind.addBindInQuery(query: query, queryStatement: queryStatement!, valuesBind: attributes.condition)
+        sqliteBind.addBindInQuery(query: query, queryStatement: queryStatement!, valuesBind: [Any](attributes.listBind.values))
 
         result = sqlite3_step(queryStatement)
 

@@ -7,7 +7,7 @@ import Foundation
 import SQLite3
 
 class SqliteBind {
-    func addBindInQuery(query: String, queryStatement: OpaquePointer, valuesBind: Any...) {
+    func addBindInQuery(query: String, queryStatement: OpaquePointer, valuesBind: [Any]) {
         let listCharacters: [Character] = Utils.convertStringToArrayCharacters(string: query)
         let constBind: Int = Utils.getNumberBind(listCharacter: listCharacters, character: "?")
 

@@ -33,13 +33,13 @@ class LoginController: UIViewController {
         let login: Login = Login(user: user, password: password)
         let message: String? = self.loginUtils.checkLoginIsEmpty(login: login)
 
-        if !Utils.checkIsEmpty(string: message) {
+        if !Utils.checkIsEmpty(value: message) {
             print(message ?? GenericError.system.getError)
             return showAlertClick(message: message ?? GenericError.system.getError)
         }
 
         do {
-            let attributes: SqliteAttributes = SqliteAttributes(table: "login", conditionField: "log_user", condition: login.user)
+            let attributes: SqliteAttributes = SqliteAttributes(table: "login", listBind: ["log_user": login.user])
             let result: Any = try self.sqliteTable.selectTable(attributes: attributes)
 
             if !Utils.checkTypeObject(object: result, typeObject: Login.self) {
